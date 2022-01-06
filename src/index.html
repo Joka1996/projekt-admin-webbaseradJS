@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/sass/main.css" />
+
+    <title>Admin</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" id="topp">Start</a>
+        <a href="#section1">Quiz</a>
+        <a href="#section4">Users</a>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Admin page for Quiza</h1>
+      <!--  formulär för att lägga till, ta bort och redigera frågor-->
+      <section id="section1">
+        <h2>Film page</h2>
+        <table id="filmOutput" border="2" bordercolor="green">
+          <caption>
+            Movie Quiz
+          </caption>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Options</th>
+              <th>Describing picture</th>
+              <th>Quiz-Picture</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+        </table>
+      </section>
+      <!-- formulär för att lägga till, ta bort redigera användare-->
+      <section class="section2">
+        <div class="addForm">
+          <h3>Add Film quiz</h3>
+          <p class="message" id="filmMessage"></p>
+          <p>
+            Form for adding a new Film quiz. Pictures are optional and are added
+            via link. <br />
+            ex:
+            <a
+              href=" https://i.postimg.cc/g226ZNmm/robot-ge24c35d58-1920.png"
+              target="_blank"
+            >
+              https://i.postimg.cc/g226ZNmm/robot-ge24c35d58-1920.png</a
+            >
+          </p>
+          <form>
+            <fieldset>
+              <label for="category">Category: </label>
+              <input type="text" id="category" name="category" />
+              <label for="Description">Description: </label>
+              <input type="text" id="Description" name="Description" />
+              <label for="describingPic">Describing picture? </label>
+              <input type="text" id="describingPic" />
+            </fieldset>
+
+            <fieldset>
+              <label for="Option1">Option1: </label>
+              <input type="text" name="Option1" id="Option1" />
+              <label for="True/false">True/false: </label>
+              <input type="text" id="True/false" />
+              <label for="picture">Picture?: </label>
+              <input type="text" id="picture" />
+            </fieldset>
+
+            <fieldset>
+              <label for="Option2">Option2: </label>
+              <input type="text" name="Option2" id="Option2" />
+              <label for="True/false2">True/false: </label>
+              <input type="text" id="True/false2" />
+              <label for="picture2">Picture?: </label>
+              <input type="text" id="picture2" />
+            </fieldset>
+
+            <fieldset>
+              <label for="Option3">Option3: </label>
+              <input type="text" name="Option3" id="Option3" />
+              <label for="True/false3">True/false: </label>
+              <input type="text" id="True/false3" />
+              <label for="picture3">Picture?: </label>
+              <input type="text" id="picture3" />
+            </fieldset>
+
+            <fieldset>
+              <label for="Option4">Option4: </label>
+              <input type="text" name="Option4" id="Option4" />
+              <label for="True/false4">True/false: </label>
+              <input type="text" id="True/false4" />
+              <label for="picture4">Picture?: </label>
+              <input type="text" id="picture4" />
+            </fieldset>
+            <input type="submit" value="Add quiz" id="addFilmBtn" />
+          </form>
+          <p>Refresh page</p>
+          <button onclick="reload()">Refresh</button>
+        </div>
+      </section>
+
+      <!----------------------------------------------------------->
+      <section id="section3">
+        <h3>Update film</h3>
+        <p class="message" id="filmMessageUP"></p>
+        <form>
+          <label for="FILM_id" id="hideMe"> </label>
+          <input type="text" id="FILM_id" />
+          <fieldset>
+          <label for="categoryUP">Category: </label>
+          <input type="text" id="categoryUP" name="categoryUP" />
+          <label for="DescriptionUP">Description: </label>
+          <input type="text" id="DescriptionUP" name="DescriptionUP" />
+          <label for="describingPicUP">Describing picture? </label
+          ><input type="text" id="describingPicUP" />
+        </fieldset>
+
+        <fieldset>
+          <label for="Option1UP">Option1: </label
+          ><input type="text" name="Option1UP" id="Option1UP" />
+          <label for="True/falseUP">True/false </label
+          ><input type="text" id="True/falseUP" />
+          <label for="pictureUP">Picture? </label
+          ><input type="text" id="pictureUP" />
+        </fieldset>
+
+       
+          <label for="Option2UP">Option2: </label
+          ><input type="text" name="Option2UP" id="Option2UP" />
+          <label for="True/false2UP">True/false </label
+          ><input type="text" id="True/false2UP" />
+          <label for="picture2UP">Picture? </label
+          ><input type="text" id="picture2UP" />
+        </fieldset>
+
+        <fieldset>
+          <label for="Option3UP">Option3: </label
+          ><input type="text" name="Option3UP" id="Option3UP" />
+          <label for="True/false3UP">True/false </label
+          ><input type="text" id="True/false3UP" />
+          <label for="picture3UP">Picture? </label
+          ><input type="text" id="picture3UP" />
+        </fieldset>
+
+        <fieldset>
+          <label for="Option4UP">Option4: </label
+          ><input type="text" name="Option4UP" id="Option4UP" />
+          <label for="True/false4UP">True/false </label
+          ><input type="text" id="True/false4UP" />
+          <label for="picture4UP">Picture? </label
+          ><input type="text" id="picture4UP" />
+        </fieldset>
+          <input type="submit" value="Update quiz" id="UPFilmBtn" />
+        </form>
+        <p>Refresh page</p>
+        <button onclick="reload()">Refresh</button>
+      </section>
+    </div>
+    <hr />
+    <section id="section4">
+      <h2>User page</h2>
+      <table id="user-output" border="2" bordercolor="green">
+        <caption>
+          Users
+        </caption>
+        <thead>
+          <tr>
+            <th>username</th>
+            <th>password</th>
+            <th>Delete</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+    <h3>Add new user</h3>
+    <p id="messageUser"></p>
+    <form>
+      <label for="Username">Username:</label><br />
+      <input type="text" id="Username" name="Username" /><br />
+      <label for="Password">Password:</label><br />
+      <input type="Password" id="Password" name="Password" /><br />
+      <button type="submit" id="addUserBTN">Add user</button>
+    </form>
+    <h3>Update user</h3>
+    <p class="message" id="messageUserUP"></p>
+    <form>
+      <label for="userID">
+       
+        <input type="text" id="userID" name="userID" /> <br />
+      </label>
+      <label for="UsernameUP">Username:</label><br />
+      <input type="text" id="UsernameUP" name="UsernameUP" /><br />
+      <label for="PasswordUP">Password:</label><br />
+      <input type="Password" id="PasswordUP" name="PasswordUP" /><br />
+      <button type="submit" id="UPUserBTN">Update user</button>
+    </form>
+
+    <footer>
+      <hr />
+      <ul>
+        <li>Admin-page</li>
+        <li>Made by: Joel Karlsson MIUN</li>
+        <li>JavaScriptbaserad webbutveckling 7,5hp</li>
+        <li>
+          <a href="mailto:joka2005@student.miun.se">
+            joka2005@student.miun.se
+          </a>
+        </li>
+        <li><a href="#topp">Topp</a></li>
+      </ul>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

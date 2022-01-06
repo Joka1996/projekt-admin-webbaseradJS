@@ -1,0 +1,68 @@
+body {
+  min-height: 100vh;
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgba(245, 245, 220, 0.842);
+}
+
+// header
+header nav {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 2%;
+}
+header nav a {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+
+table {
+  overflow-x: auto;
+}
+
+#FILM_id {
+  visibility: hidden;
+}
+#hideMe {
+  visibility: hidden;
+}
+#userID {
+  visibility: hidden;
+}
+#section1 {
+  max-width: 100%;
+  overflow-x: scroll;
+  font-size: 15px;
+}
+
+.section2 form fieldset {
+  max-width: 100%;
+  width: 70%;
+  padding: 5px;
+}
+#section3 form fieldset {
+  max-width: 100%;
+  width: 70%;
+  padding: 5px;
+}
+#section4 {
+  overflow-x: scroll;
+}
+button {
+  font-size: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+caption {
+  font-size: larger;
+}
+
+.message {
+  color: green;
+  font-size: 25px;
+  font-style: bold;
+}

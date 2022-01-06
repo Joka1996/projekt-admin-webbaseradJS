@@ -12,12 +12,14 @@ const browserSync = require("browser-sync").create();
 const sourcemaps = require("gulp-sourcemaps");
 // npm install --save-dev gulp-babel @babel/core @babel/preset-env
 const babel = require("gulp-babel");
+//npm install sass gulp-sass --save-dev
+
+const sass = require("gulp-sass")(require("sass"));
 
 // objekt för att lagra sökvägar
 const files = {
   htmlPath: "src/**/*.html",
   sassPath: "src/**/*.scss",
-  tsPath: "src/typescript/*.ts",
   jsPath: "src/**/*.js",
   picPath: "src/pics/*",
 };
@@ -33,6 +35,19 @@ function htmlTask() {
   );
 }
 
+// sassTask
+function sassTask() {
+  return (
+    src(files.sassPath)
+      .pipe(sourcemaps.init())
+      .pipe(sass().on("error", sass.logError))
+      // sourcemaps
+      .pipe(sourcemaps.write("./maps"))
+      .pipe(dest("pub/css"))
+      .pipe(browserSync.stream())
+  );
+}
+
 // jsTask
 function jsTask() {
   return (
@@ -42,6 +57,7 @@ function jsTask() {
       .pipe(babel({ presets: ["@babel/env"] }))
       // slå ihop
       .pipe(concat("main.js"))
+
       // minimera filer
       .pipe(terser())
       // sourcemaps
@@ -72,11 +88,14 @@ function watchTask() {
   // metoden watch som tar en array och ett argument.
   // Ladda om webbläsaren vid förändring, browsersync
   watch(
-    [files.htmlPath, files.jsPath, files.picPath],
+    [files.htmlPath, files.sassPath, files.jsPath, files.picPath],
     parallel(htmlTask, sassTask, jsTask, picTask)
   ).on("change", browserSync.reload);
 }
 
 // Dags att exportera, först körs alla task parallelt,
 //  sedan watchTask med browserSync.
-exports.default = series(parallel(htmlTask, jsTask, picTask), watchTask);
+exports.default = series(
+  parallel(htmlTask, sassTask, jsTask, picTask),
+  watchTask
+);
