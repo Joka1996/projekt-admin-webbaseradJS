@@ -9,7 +9,7 @@ function checkLogin() {
   let messageERROR = document.getElementById("messageERROR");
 
   if (loginU.value == username && loginP.value == password) {
-    window.location = "http://localhost:3000/quiz.html";
+    window.location = "https://admin-quiz.netlify.app/quiz.html";
   } else {
     messageERROR.innerHTML = "<h3>Fel lösenord/användarnamn</h3>";
   }
